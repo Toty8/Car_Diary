@@ -99,7 +99,6 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> with SingleTi
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Имейл'),
-                    obscureText: true,
                     validator: (value) => value == null || value.isEmpty ? 'Въведи имейл' : null,
                     onSaved: (value) => _loginEmail = value!,
                   ),
@@ -127,7 +126,6 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> with SingleTi
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Имейл'),
-                    obscureText: true,
                     validator: (value) => value == null || value.isEmpty ? 'Въведи имейл' : null,
                     onSaved: (value) => _registerEmail = value!,
                   ),

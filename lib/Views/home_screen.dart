@@ -3,6 +3,7 @@ import '../database/database_helper.dart';
 import '../models/user.dart';
 import '../models/car.dart';
 import '../Views/login_register_screen.dart';
+import '../Views/add_car_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final User user;
@@ -93,7 +94,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // TODO: Премини към екран за добавяне на автомобил
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddCarScreen(user: widget.user),
+            ),
+          ).then((_) => _loadCars());
         },
         child: const Icon(Icons.add),
       ),
