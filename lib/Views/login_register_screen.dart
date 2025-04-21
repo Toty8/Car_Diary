@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Database/database_helper.dart';
 import '../models/user.dart';
+import '../Views/home_screen.dart';
 
 class LoginRegisterScreen extends StatefulWidget {
   const LoginRegisterScreen({super.key});
@@ -37,7 +38,13 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> with SingleTi
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Добре дошъл, ${user.email}')),
         );
-        // TODO: Навигация към Home екран
+        if (!mounted) return;
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(user: user),
+          ),
+      );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Грешен имейл или парола')),
@@ -92,6 +99,7 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> with SingleTi
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Имейл'),
+                    obscureText: true,
                     validator: (value) => value == null || value.isEmpty ? 'Въведи имейл' : null,
                     onSaved: (value) => _loginEmail = value!,
                   ),
@@ -119,6 +127,7 @@ class _LoginRegisterScreenState extends State<LoginRegisterScreen> with SingleTi
                 children: [
                   TextFormField(
                     decoration: const InputDecoration(labelText: 'Имейл'),
+                    obscureText: true,
                     validator: (value) => value == null || value.isEmpty ? 'Въведи имейл' : null,
                     onSaved: (value) => _registerEmail = value!,
                   ),
