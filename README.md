@@ -1,6 +1,6 @@
 # car_diary
 
-A new Flutter project.
+This is a small mobile application(course project) for my "Programing of mobile devices" class in Technical University(Sofia).
 
 ## Getting Started
 
