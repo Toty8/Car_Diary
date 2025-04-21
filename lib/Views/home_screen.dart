@@ -39,10 +39,28 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.logout),
             tooltip: 'Изход',
             onPressed: () {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginRegisterScreen()),
-                (route) => false,
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Изход'),
+                  content: const Text('Сигурен ли си, че искаш да излезеш?'),
+                  actions: [
+                    TextButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text('Отказ'),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => const LoginRegisterScreen()),
+                          (route) => false,
+                        );
+                      },
+                      child: const Text('Изход'),
+                    ),
+                  ],
+                ),
               );
             },
           ),
