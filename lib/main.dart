@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'views/login_register_screen.dart';
 
-void main(){
-  runApp( CarDiary() );
+void main() {
+  runApp(const MyApp());
 }
 
-class CarDiary extends StatelessWidget {
-  const CarDiary({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MaterialApp(
+      title: 'Авто Дневник',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        useMaterial3: true,
+      ),
+      home: const LoginRegisterScreen(),
+    );
   }
 }
