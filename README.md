@@ -1,6 +1,6 @@
 # car_diary
 
-This is my to small mobile application(course project) for my "Programing of mobile devices" class in Technical University(Sofia).
+This is a small mobile application(course project) for my "Programing of mobile devices" class in Technical University(Sofia).
 
 ## Getting Started
 
