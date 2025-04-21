@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../database/database_helper.dart';
 import '../models/user.dart';
 import '../models/car.dart';
+import '../Views/login_register_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final User user;
@@ -33,6 +34,19 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Моите автомобили'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Изход',
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginRegisterScreen()),
+                (route) => false,
+              );
+            },
+          ),
+        ],
       ),
       body: _cars.isEmpty
           ? const Center(child: Text('Нямаш добавени автомобили.'))
