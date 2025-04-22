@@ -4,6 +4,7 @@ import '../models/user.dart';
 import '../models/car.dart';
 import '../Views/login_register_screen.dart';
 import '../Views/add_car_screen.dart';
+import '../Views/car_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   final User user;
@@ -86,7 +87,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     onTap: () {
-                      // TODO: Преминаване към детайли на автомобила
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CarDetailScreen(car: car),
+                        ),
+                      );
                     },
                   ),
                 );

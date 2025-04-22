@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 
 import '../models/car.dart';
 import '../models/user.dart';
@@ -26,7 +25,6 @@ class _AddCarScreenState extends State<AddCarScreen> {
   String _technicalDueDate = '';
   double _totalSpent = 0;
 
-  File? _capturedImage;
   final picker = ImagePicker();
 
   Future<void> _saveCar() async {
