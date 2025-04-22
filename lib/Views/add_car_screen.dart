@@ -29,21 +29,6 @@ class _AddCarScreenState extends State<AddCarScreen> {
   File? _capturedImage;
   final picker = ImagePicker();
 
-  Future<void> _pickImageFromCamera() async {
-    final pickedFile = await picker.pickImage(source: ImageSource.camera);
-
-    if (pickedFile != null) {
-      setState(() {
-        _capturedImage = File(pickedFile.path);
-      });
-
-      // TODO Тук ще добавим OCR по-късно
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Заснета е снимка – OCR предстои')),
-      );
-    }
-  }
-
   Future<void> _saveCar() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
@@ -76,17 +61,6 @@ class _AddCarScreenState extends State<AddCarScreen> {
           key: _formKey,
           child: ListView(
             children: [
-              if (_capturedImage != null)
-                Image.file(_capturedImage!, height: 150),
-
-              const SizedBox(height: 8),
-              ElevatedButton.icon(
-                icon: const Icon(Icons.camera_alt),
-                label: const Text('Снимай номер'),
-                onPressed: _pickImageFromCamera,
-              ),
-              const SizedBox(height: 16),
-
               TextFormField(
                 decoration: const InputDecoration(labelText: 'Регистрационен номер'),
                 validator: (value) => value!.isEmpty ? 'Въведи номер' : null,
