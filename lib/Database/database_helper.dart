@@ -105,4 +105,14 @@ class DatabaseHelper {
     final result = await db.query('repairs', where: 'car_id = ?', whereArgs: [carId]);
     return result.map((e) => Repair.fromMap(e)).toList();
   }
+
+  Future<int> deleteRepair(int id) async {
+    final db = await database;
+    return await db.delete('repairs', where: 'id = ?', whereArgs: [id]);
+  }
+
+  Future<int> updateRepair(Repair repair) async {
+    final db = await database;
+    return await db.update('repairs', repair.toMap(), where: 'id = ?', whereArgs: [repair.id]);
+  }
 }
