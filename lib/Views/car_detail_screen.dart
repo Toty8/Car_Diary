@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/car.dart';
 import '../models/repair.dart';
 import '../database/database_helper.dart';
-//import 'add_repair_screen.dart';
+import 'add_repair_screen.dart';
 
 class CarDetailScreen extends StatefulWidget {
   final Car car;
@@ -61,13 +61,13 @@ class _CarDetailScreenState extends State<CarDetailScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // await Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (_) => AddRepairScreen(car: widget.car),
-          //   ),
-          // );
-          // _loadRepairs(); // Обновяване след добавяне
+          await Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => AddRepairScreen(car: widget.car),
+            ),
+          );
+          _loadRepairs();
         },
         tooltip: 'Добави ремонт',
         child: const Icon(Icons.add),
